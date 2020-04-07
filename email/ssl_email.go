@@ -44,7 +44,7 @@ func (e *SslEmail) Send(touser, subj, body, mailtype string) error {
 	auth := smtp.PlainAuth("", e.user, e.pwd, host)
 	// TLS config
 	tlsconfig := &tls.Config{
-		InsecureSkipVerify: true,
+		InsecureSkipVerify: false,
 		ServerName:         host,
 	}
 	conn, err := tls.Dial("tcp", e.host, tlsconfig)
